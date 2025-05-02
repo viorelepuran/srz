@@ -1,0 +1,32 @@
+# Node & dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+*.asset.php
+*.map
+
+# Block build output
+blocks/**/build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS swap files
+*.swp
+*.swo
+
+# Environment / secrets
+.env
+.env.*
+secrets/
