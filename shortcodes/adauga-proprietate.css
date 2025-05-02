@@ -1,0 +1,374 @@
+/* Container for the radio buttons */
+.radio-group {
+    display: flex;
+    gap: 5px; /* Space between buttons */ 
+    justify-content: space-between;
+}
+
+/* Hide the actual radio inputs */
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+/* Style the label to look like a button */
+.radio-group .radio-button {
+    display: inline-block;
+    padding: 5px 2px;
+    border: 1px solid var(--wp--preset--color--contrast);
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f7f7f7;
+    color: var(--wp--preset--color--contrast);
+    background-color: #fff;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer; 
+    font-weight: normal;
+    width: -webkit-fill-available;
+}
+ 
+.radio-group input[type="radio"]:checked + .radio-button {
+    background-color: #d4edda;
+    border-color: #cae1cf;
+    color: #000000;
+}
+.radio-group .full, .radio-group .full input, .radio-group .full select {
+    width: 100%;
+}
+
+form#adauga-proprietate-form input {
+    font-family: var(--wp--preset--font-family--montserrat)!important;
+    padding: 7.5px 10px;
+    width: 100%;
+    max-width: calc(100% - 20px);
+    border-radius: 5px;
+    border: 1px solid var(--wp--preset--color--contrast);
+}
+form#adauga-proprietate-form select {
+    font-family: var(--wp--preset--font-family--montserrat)!important;
+    padding: 6.5px 10px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--wp--preset--color--contrast);
+}
+label {
+    font-family: var(--wp--preset--font-family--montserrat)!important;
+    font-size: 14px;
+    font-weight: 600;
+}
+input#title {
+    width: 100%;
+}
+.radio-group input[type="radio"]:disabled + .radio-button {
+    opacity: 0.2;
+}
+fieldset {
+    border-radius: 5px;
+    border: 1px solid var(--wp--preset--color--contrast);
+    background: #ee972108;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered, .select2-results__options {
+    color: #444;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+
+.unit-toggle {
+    display: flex;
+    gap: 10px;
+}
+
+.unit-toggle input[type="radio"] {
+    display: none;
+}
+
+.unit-toggle label {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.unit-toggle input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.full ul {
+    margin: 0;
+    padding: 0 0 0 5px;
+    list-style: none;
+}
+
+
+/* Media Section */
+.media-section {
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+/* Upload Placeholder */
+.upload-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color: #fffbea;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.upload-placeholder p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: underline;
+}
+
+/* Image Item */
+.item {
+    position: relative;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+}
+
+.item img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Remove Button */
+.remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Clear Button */
+.clear-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.clear-button:hover {
+    background-color: #c9302c;
+}
+
+.anunt_recomandat input {
+    position: absolute;
+    top: 9px;
+}
+.anunt_recomandat {
+    position: relative;
+}
+.anunt_recomandat label.radio-button {
+    width: 140px;
+}
+
+
+
+#youtube-url {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#preview-youtube-button {
+    padding: 8px 16px;
+    background-color: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#preview-youtube-button:hover {
+    background-color: #005a87;
+}
+
+#youtube-preview iframe {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#repeater-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#repeater-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#repeater-container th, #repeater-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#repeater-container th {
+    background-color: #f5f5f5;
+}
+
+#repeater-container input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.remove-row-btn {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-row-btn:hover {
+    background-color: #ff0000;
+}
+
+#add-new-row {
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+.radio-group.four {
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+.radio-group.four > div {
+    flex: 1 1 calc(20% - 10px);
+}
+.radio-group.four input, .radio-group.four select {
+    width: 100%;
+}
+
+
+div#finisaje ul li {
+    background: #eeeeee;
+    padding: 3px 5px;
+    font-size: 14px;
+    border: 1px solid #0000000d;
+    border-radius: 3px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+
+.radio-group.four ul li input {
+    width: 20px !important;
+    float: left;
+}
+.radio-group.four ul li label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 5px;
+}
+.radio-group.four ul li {
+    float: left;
+}
+.radio-group.four ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+}
+div#dotari, div#finisaje, div#tip_imobil, div#structura, div#bucatarie, div#destinatie, div#clasa_energetica, div#incalzire, div#acces, div#utilitati, div#vecinatati {
+    flex: 1 1 100%;
+}
+input#proprietate_speciala:checked + .radio-button {
+    background: #d4edda;
+    border-color: #cae1cf;
+}
+div#taxonomy-zone input {
+    width: auto;
+}
+.ed_button {
+    width: auto !important;
+    padding: 1.5px 8px !important;
+}
+.choosePhone label span {
+    font-size: 11px;
+}
+.choosePhone label {
+    display: flex !important;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

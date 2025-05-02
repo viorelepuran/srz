@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "sudrezidential/location-map",
+  "title": "Location Map",
+  "category": "widgets",
+  "icon": "location-alt",
+  "description": "Map with draggable locations and search.",
+  "attributes": {
+    "locations": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "editorScript": "file:./build/index.js",
+  "script": "file:./build/index.js",
+  "style": "file:./build/index.css",
+  "editorStyle": "file:./build/index.css"
+}

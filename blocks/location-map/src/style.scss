@@ -1,0 +1,20 @@
+@import "~leaflet/dist/leaflet.css";
+
+.location-map-wrapper {
+  width: 100%;
+}
+.location-map-search {
+  margin-bottom: 1rem;
+}
+.location-map-container {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: relative;
+}
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
