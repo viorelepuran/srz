@@ -14,5 +14,5 @@
   "editorScript": "file:./build/index.js",
   "script": "file:./build/index.js",
   "style": "file:./build/index.css",
-  "editorStyle": "file:./build/index.css"
+  "editorStyle": "file:./src/style.scss"
 }

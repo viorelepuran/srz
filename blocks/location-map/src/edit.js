@@ -1,3 +1,4 @@
+import './style.scss';
 import { useEffect, useRef, useState } from '@wordpress/element';
 import { TextControl, Button, Spinner } from '@wordpress/components';
 import L from 'leaflet';
