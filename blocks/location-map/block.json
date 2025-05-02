@@ -4,15 +4,27 @@
   "title": "Location Map",
   "category": "widgets",
   "icon": "location-alt",
-  "description": "Map with draggable locations and search.",
+  "description": "Map with editable pins and search.",
   "attributes": {
     "locations": {
       "type": "array",
       "default": []
+    },
+    "mapHeight": {
+      "type": "number",
+      "default": 450
+    },
+    "mapId": {
+      "type": "string",
+      "default": ""
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
     }
   },
   "editorScript": "file:./build/index.js",
-  "script": "file:./build/index.js",
   "style": "file:./build/index.css",
-  "editorStyle": "file:./src/style.scss"
+  "editorStyle": "file:./build/editor.css",
+  "render": "file:./render.php"
 }

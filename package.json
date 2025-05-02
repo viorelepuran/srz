@@ -13,9 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
-    "@wordpress/block-editor": "^14.13.0",
-    "@wordpress/blocks": "^14.7.0",
-    "@wordpress/components": "^29.4.0",
+    "@wordpress/block-editor": "^14.17.0",
+    "@wordpress/blocks": "^14.11.0",
+    "@wordpress/components": "^29.8.0",
     "@wordpress/data": "^10.18.0",
     "@wordpress/edit-post": "^8.18.0",
     "@wordpress/i18n": "^5.18.0",
@@ -23,10 +23,12 @@
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.87.0",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0"
   },
   "dependencies": {
+    "@wordpress/element": "^6.22.0",
     "leaflet": "^1.9.4"
   }
 }
