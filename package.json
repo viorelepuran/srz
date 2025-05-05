@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@wordpress/element": "^6.22.0",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "leaflet-control-geocoder": "^3.1.0"
   }
 }

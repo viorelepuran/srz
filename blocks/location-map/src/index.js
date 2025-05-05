@@ -4,6 +4,8 @@ import { useEffect, useRef } from '@wordpress/element';
 import { PanelBody, TextControl, RangeControl } from '@wordpress/components';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet-control-geocoder';
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 
 registerBlockType('sudrezidential/location-map', {
 	apiVersion: 2,
@@ -39,16 +41,7 @@ registerBlockType('sudrezidential/location-map', {
 					updateLocations();
 				});
 
-				const script = document.createElement('script');
-				script.src = "https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js";
-				document.head.appendChild(script);
-
-				const style = document.createElement('link');
-				style.rel = "stylesheet";
-				style.href = "https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css";
-				document.head.appendChild(style);
-
-				script.onload = () => {
+				if (L.Control && L.Control.Geocoder) {
 					L.Control.geocoder({ defaultMarkGeocode: false })
 						.on('markgeocode', (e) => {
 							const latlng = e.geocode.center;
@@ -57,7 +50,9 @@ registerBlockType('sudrezidential/location-map', {
 							updateLocations();
 						})
 						.addTo(mapInstance.current);
-				};
+				} else {
+					console.warn('Leaflet Control Geocoder not available.');
+				}
 			}
 
 			return () => {
@@ -68,6 +63,8 @@ registerBlockType('sudrezidential/location-map', {
 
 		const addMarker = ({ lat, lng, info }) => {
 			const marker = L.marker([lat, lng], { draggable: true }).addTo(mapInstance.current);
+			marker.options.info = info;
+			markersRef.current.push(marker);
 
 			const updatePopup = () => {
 				marker.bindPopup(`
@@ -75,33 +72,31 @@ registerBlockType('sudrezidential/location-map', {
 					<button id="save-info">Save</button>
 					<button id="delete-marker" style="margin-left:5px;color:red;">Delete Marker</button>
 				`).openPopup();
-
-				setTimeout(() => {
-					const popup = marker.getPopup().getElement();
-					if (!popup) return;
-
-					const textarea = popup.querySelector('textarea');
-					const saveBtn = popup.querySelector('#save-info');
-					const deleteBtn = popup.querySelector('#delete-marker');
-
-					saveBtn.onclick = () => {
-						marker.options.info = textarea.value;
-						marker.closePopup();
-						updateLocations();
-					};
-
-					deleteBtn.onclick = () => {
-						mapInstance.current.removeLayer(marker);
-						markersRef.current = markersRef.current.filter(m => m !== marker);
-						updateLocations();
-					};
-				}, 0);
 			};
 
 			marker.on('click', updatePopup);
 			marker.on('dragend', updateLocations);
-			marker.options.info = info;
-			markersRef.current.push(marker);
+
+			marker.once('popupopen', () => {
+				const popup = marker.getPopup().getElement();
+				if (!popup) return;
+
+				const textarea = popup.querySelector('textarea');
+				const saveBtn = popup.querySelector('#save-info');
+				const deleteBtn = popup.querySelector('#delete-marker');
+
+				saveBtn.onclick = () => {
+					marker.options.info = textarea.value;
+					marker.closePopup();
+					updateLocations();
+				};
+
+				deleteBtn.onclick = () => {
+					mapInstance.current.removeLayer(marker);
+					markersRef.current = markersRef.current.filter(m => m !== marker);
+					updateLocations();
+				};
+			});
 		};
 
 		const updateLocations = () => {

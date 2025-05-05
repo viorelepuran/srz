@@ -4,19 +4,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   ...defaultConfig,
+
   entry: {
-    // Block JavaScript
-    'location-map/index': path.resolve(__dirname, 'blocks/location-map/src/index.js'),
-    // Editor styles
-    'location-map/editor': path.resolve(__dirname, 'blocks/location-map/src/style.scss'),
+    index: path.resolve(__dirname, 'blocks/location-map/src/index.js'),
+    editor: path.resolve(__dirname, 'blocks/location-map/src/style.scss'),
   },
+
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: (pathData) => {
-      const [block, file] = pathData.chunk.name.split('/');
-      return `../blocks/${block}/build/${file}.js`;
-    },
+    path: path.resolve(__dirname, 'blocks/location-map/build'),
+    filename: '[name].js',
   },
+
   module: {
     ...defaultConfig.module,
     rules: [
@@ -27,13 +25,11 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
     ...defaultConfig.plugins,
     new MiniCssExtractPlugin({
-      filename: (pathData) => {
-        const [block, file] = pathData.chunk.name.split('/');
-        return `../blocks/${block}/build/${file}.css`;
-      },
+      filename: '[name].css',
     }),
   ],
 };

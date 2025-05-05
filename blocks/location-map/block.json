@@ -3,28 +3,14 @@
   "name": "sudrezidential/location-map",
   "title": "Location Map",
   "category": "widgets",
-  "icon": "location-alt",
-  "description": "Map with editable pins and search.",
-  "attributes": {
-    "locations": {
-      "type": "array",
-      "default": []
-    },
-    "mapHeight": {
-      "type": "number",
-      "default": 450
-    },
-    "mapId": {
-      "type": "string",
-      "default": ""
-    },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
-    }
+  "icon": "location",
+  "description": "A custom map block.",
+  "supports": {
+    "html": false
   },
   "editorScript": "file:./build/index.js",
-  "style": "file:./build/index.css",
   "editorStyle": "file:./build/editor.css",
-  "render": "file:./render.php"
+  "style": "file:./build/index.css",
+  "script": "file:./build/index.js",
+  "render": "render.php"
 }
